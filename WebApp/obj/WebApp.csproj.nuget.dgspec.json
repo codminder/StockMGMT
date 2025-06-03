@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/fasturtle/RiderProjects/WebApp/WebApp.csproj": {}
+    "/home/fasturtle/RiderProjects/StockMGMT/WebApp/WebApp.csproj": {}
   },
   "projects": {
-    "/home/fasturtle/RiderProjects/WebApp/WebApp.csproj": {
+    "/home/fasturtle/RiderProjects/StockMGMT/WebApp/WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/fasturtle/RiderProjects/WebApp/WebApp.csproj",
+        "projectUniqueName": "/home/fasturtle/RiderProjects/StockMGMT/WebApp/WebApp.csproj",
         "projectName": "WebApp",
-        "projectPath": "/home/fasturtle/RiderProjects/WebApp/WebApp.csproj",
+        "projectPath": "/home/fasturtle/RiderProjects/StockMGMT/WebApp/WebApp.csproj",
         "packagesPath": "/home/fasturtle/.nuget/packages/",
-        "outputPath": "/home/fasturtle/RiderProjects/WebApp/obj/",
+        "outputPath": "/home/fasturtle/RiderProjects/StockMGMT/WebApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/fasturtle/.nuget/NuGet/NuGet.Config"

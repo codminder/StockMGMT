@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qe7qtF+66sM=",
+  "dgSpecHash": "xYxFGPEyy9w=",
   "success": true,
-  "projectFilePath": "/home/fasturtle/RiderProjects/WebApp/WebApp.csproj",
+  "projectFilePath": "/home/fasturtle/RiderProjects/StockMGMT/WebApp/WebApp.csproj",
   "expectedPackageFiles": [
     "/home/fasturtle/.nuget/packages/humanizer/2.14.1/humanizer.2.14.1.nupkg.sha512",
     "/home/fasturtle/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
