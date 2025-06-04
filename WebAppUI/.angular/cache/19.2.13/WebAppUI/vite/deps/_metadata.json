@@ -1,0 +1,67 @@
+{
+  "hash": "231f7f14",
+  "configHash": "921a493e",
+  "lockfileHash": "71168389",
+  "browserHash": "7a553d20",
+  "optimized": {
+    "@angular/cdk/bidi": {
+      "src": "../../../../../../node_modules/@angular/cdk/fesm2022/bidi.mjs",
+      "file": "@angular_cdk_bidi.js",
+      "fileHash": "1f53e2fd",
+      "needsInterop": false
+    },
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "a6e5b05d",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "9f09b87b",
+      "needsInterop": false
+    },
+    "@angular/material/button": {
+      "src": "../../../../../../node_modules/@angular/material/fesm2022/button.mjs",
+      "file": "@angular_material_button.js",
+      "fileHash": "3ca269d5",
+      "needsInterop": false
+    },
+    "@angular/material/icon": {
+      "src": "../../../../../../node_modules/@angular/material/fesm2022/icon.mjs",
+      "file": "@angular_material_icon.js",
+      "fileHash": "28e1b558",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "3aedf9ae",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "9d2a7519",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-OESB7EK4": {
+      "file": "chunk-OESB7EK4.js"
+    },
+    "chunk-AEAW6OM4": {
+      "file": "chunk-AEAW6OM4.js"
+    },
+    "chunk-DPQIPLA5": {
+      "file": "chunk-DPQIPLA5.js"
+    },
+    "chunk-EZBT3CYZ": {
+      "file": "chunk-EZBT3CYZ.js"
+    },
+    "chunk-RPOTIJQW": {
+      "file": "chunk-RPOTIJQW.js"
+    }
+  }
+}

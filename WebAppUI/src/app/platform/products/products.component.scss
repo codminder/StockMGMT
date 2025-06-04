@@ -1,0 +1,25 @@
+.products-container {
+    display: flex;
+    flex-direction: column;
+    
+    .products-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .products-list {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        
+        .table {
+            width: 100%;
+            text-align: right;
+        }
+    }
+}
+
+.blue-icon {
+    color: rgba(17, 70, 114, 0.692);
+}

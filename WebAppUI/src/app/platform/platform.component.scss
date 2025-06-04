@@ -1,0 +1,18 @@
+.platform-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+
+    .platform-navigation {
+        width: 250px;
+        padding: 20px;
+        background-color: #8282ff;
+    }
+
+    .platform-content {
+        background-color: whitesmoke;
+        width: calc(100% - 40px);
+        padding: 20px;
+    }
+}
+
