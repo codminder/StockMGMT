@@ -6,11 +6,11 @@ namespace WebApp.Services;
 
 public class CustomerService
 {
-    private ProductRepository repository;
+    private CustomerRepository repository;
 
     public CustomerService()
     {
-        repository = new ProductRepository();
+        repository = new CustomerRepository();
     }
 
     public Customer Create(Customer customer)
@@ -19,7 +19,7 @@ public class CustomerService
         return createCustomer;
     }
 
-    public CustomerViewModel GetProductById(int id)
+    public CustomerViewModel GetById(int id)
     {
         return null;
     }

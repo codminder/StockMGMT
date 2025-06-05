@@ -248,3 +248,14 @@
 /home/fasturtle/RiderProjects/WebApp/obj/Debug/net9.0/WebApp.pdb
 /home/fasturtle/RiderProjects/WebApp/obj/Debug/net9.0/WebApp.genruntimeconfig.cache
 /home/fasturtle/RiderProjects/WebApp/obj/Debug/net9.0/ref/WebApp.dll
+/home/fasturtle/RiderProjects/StockMGMT/WebApp/obj/Debug/net9.0/WebApp.csproj.AssemblyReference.cache
+/home/fasturtle/RiderProjects/StockMGMT/WebApp/obj/Debug/net9.0/WebApp.GeneratedMSBuildEditorConfig.editorconfig
+/home/fasturtle/RiderProjects/StockMGMT/WebApp/obj/Debug/net9.0/WebApp.AssemblyInfoInputs.cache
+/home/fasturtle/RiderProjects/StockMGMT/WebApp/obj/Debug/net9.0/WebApp.AssemblyInfo.cs
+/home/fasturtle/RiderProjects/StockMGMT/WebApp/obj/Debug/net9.0/WebApp.csproj.CoreCompileInputs.cache
+/home/fasturtle/RiderProjects/StockMGMT/WebApp/obj/Debug/net9.0/WebApp.MvcApplicationPartsAssemblyInfo.cs
+/home/fasturtle/RiderProjects/StockMGMT/WebApp/obj/Debug/net9.0/WebApp.MvcApplicationPartsAssemblyInfo.cache
+/home/fasturtle/RiderProjects/StockMGMT/WebApp/obj/Debug/net9.0/WebApp.sourcelink.json
+/home/fasturtle/RiderProjects/StockMGMT/WebApp/obj/Debug/net9.0/WebApp.dll
+/home/fasturtle/RiderProjects/StockMGMT/WebApp/obj/Debug/net9.0/refint/WebApp.dll
+/home/fasturtle/RiderProjects/StockMGMT/WebApp/obj/Debug/net9.0/WebApp.pdb

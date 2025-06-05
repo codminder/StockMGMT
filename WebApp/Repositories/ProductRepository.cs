@@ -20,8 +20,9 @@ public class ProductRepository
         _context.SaveChanges();
         return product;
     }
-    public Product GetById(int id)
+
+    public Product[] GetAll()
     {
-        return null;
+        return _context.Products.ToArray();
     }
 }

@@ -12,9 +12,12 @@ namespace WebApp.Controllers
     public class ProductController : ControllerBase
     {
         [HttpGet]
-        public ProductListViewModel Get()
+        public ProductListViewModel[] GetAll()
         {
-            return MockProductList.ProductList;
+            var service = new ProductService();
+            var products = service.GetAll();
+            var viewModel = Mapper(products);
+            return viewModel;
         }
 
         [HttpGet("{id}")]
@@ -47,6 +50,18 @@ namespace WebApp.Controllers
             
         }
 
+        List<ProductViewModel> Mapper(Product[] model)
+        {
+            List<ProductViewModel> products = new();
+            foreach (var product in model)
+            {
+                var mapperObject = Mapper(product);
+                products.Add(mapperObject);
+            }
+
+            return products.ToArray();
+        }
+
         private ProductViewModel Mapper(Product model)
         {
             return new ProductViewModel()
@@ -59,6 +74,7 @@ namespace WebApp.Controllers
                 DiscountPercentage = model.DiscountPercentage
             };
         }
+        
         
         private Product Mapper(CreateProductModel model)
         {

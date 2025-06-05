@@ -8,16 +8,15 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Price</th>
-                    <th>Catagory</th>
-                    <th>Discounts</th>
+                    <th>DiscountedPrice</th>
+                    <th>Stock</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let product of products">
                     <td>{{ product.name }}</td>
-                    <td>{{ product.price | currency }}</td>
-                    <td>{{ product.category.name }}</td>
+                    <td>{{ product.discountedPrice | currency }}</td>
+                    <td>{{ product.stock }}</td>
                     <td>
                         <button mat-icon-button color="accent" [routerLink]="['products', product.id]">
                             <mat-icon class="blue-icon">visibility</mat-icon>

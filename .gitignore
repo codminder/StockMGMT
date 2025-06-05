@@ -6,3 +6,4 @@ dist/
 #=== Vivual Studio /.NET ===
 bin/
 obj/
+.vs

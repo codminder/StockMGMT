@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebApp.Repositories;
 
-public class CuctomerRepository
+public class CustomerRepository
 {
     private readonly AppDbContext _context;
 
-    public CuctomerRepository()
+    public CustomerRepository()
     {
         var connectionstring = "Host=localhost;Port=5432;database=stockdb;Username=postgres;Password=passpass";
         var optionBuilder = new DbContextOptionsBuilder<AppDbContext>();
