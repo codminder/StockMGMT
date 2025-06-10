@@ -19,9 +19,11 @@ public class CustomerService
         return createCustomer;
     }
 
+    /*
     public CustomerViewModel GetById(int id)
     {
         return null;
     }
+    */
     
 }

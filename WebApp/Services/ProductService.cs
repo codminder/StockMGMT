@@ -23,8 +23,10 @@ public class ProductService
         return repository.GetAll();
     }
     
+    /*
     public ProductViewModel GetProductById(int id)
     {
         return null;
     }
+    */
 }
