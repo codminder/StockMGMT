@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { ProductViewModel } from '../../core/services/dataContracts/productViewModel';
+import { ProductViewModel } from '../../core/dataContracts/productViewModel';
 import { ProductService } from '../../core/services/product.service';
 
 @Component({

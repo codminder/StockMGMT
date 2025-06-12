@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata;
 using WebApp.DataContracts;
@@ -7,12 +8,13 @@ using WebApp.Services;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
         [HttpGet]
-        public ProductListViewModel[] GetAll()
+        public ProductViewModel[] GetAll()
         {
             var service = new ProductService();
             var products = service.GetAll();
@@ -50,7 +52,7 @@ namespace WebApp.Controllers
             
         }
 
-        List<ProductViewModel> Mapper(Product[] model)
+        private ProductViewModel[] Mapper(Product[] model)
         {
             List<ProductViewModel> products = new();
             foreach (var product in model)

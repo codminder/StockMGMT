@@ -37,11 +37,23 @@ public class CustomerController : ControllerBase
     public ActionResult<CustomerViewModel> Post([FromBody] CreateCustomerModel model)
     {
         //Console.WriteLine(model);
+        var mappedModel = Mapper(model);
         var service = new CustomerService();
-        var domainModel = service.Create(model);
-        var createModel = service.Create(domainModel);
-        var viewModel = Mapper(createModel);
+        var domainModel = service.Create(mappedModel);
+        var viewModel = Mapper(domainModel);
         return Ok(viewModel);
+    }
+    
+    private Customer Mapper(CreateCustomerModel model)
+    {
+        return new Customer()
+        {
+            FirstName = model.FirstName,
+            LastName = model.LastName,
+            Street = model.Street,
+            PostalCode = model.PostalCode,
+            AppartmentNumber = model.AppartmentNumber
+        };
     }
 
     private CustomerViewModel Mapper(Customer model)

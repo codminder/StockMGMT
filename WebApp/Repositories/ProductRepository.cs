@@ -13,7 +13,11 @@ public class ProductRepository
         optionsBuilder.UseNpgsql(connectionstring);
         _context = new AppDbContext(optionsBuilder.Options);
     }
-    
+
+    public Product GetById(int id)
+    {
+        return _context.Products.Single(x => x.Id == id);
+    }
     public Product CreateProduct(Product product)
     {
         _context.Products.Add(product);
@@ -25,4 +29,18 @@ public class ProductRepository
     {
         return _context.Products.ToArray();
     }
+
+    public void UpdateProduct(Product product)
+    {
+        _context.Products.Update(product);
+        _context.SaveChanges();
+    }
+
+    public void DeleteById(int id)
+    {
+        var productToBeDeleted = GetById(id);
+        _context.Products.Remove(productToBeDeleted);
+        _context.SaveChanges();
+    }
+    
 }
