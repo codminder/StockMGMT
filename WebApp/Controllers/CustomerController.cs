@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.DataContracts;
 using WebApp.MockData;
@@ -10,14 +11,23 @@ namespace WebApp.Controllers;
 [ApiController]
 public class CustomerController : ControllerBase
 {
+
     [HttpGet]
-    public CustomerListViewModel Get()
+    public CustomerViewModel[] Mapper(Customer[] model)
     {
-        return MockCustomerList.CustomerList;
+        List<CustomerViewModel> customers = new();
+        foreach (var customer in model)
+        {
+            var mappedModel = Mapper(customer);
+            customers.Add(mappedModel);
+        }
+
+        return customers.ToArray();
+
     }
-    
+
     [HttpGet("{id}")]
-    public ActionResult<CustomerViewModel> GetProduct(int id)
+    public ActionResult<CustomerViewModel> GetCustomer(int id)
     {
         var customer = MockCustomerList.CustomerList.Customers.FirstOrDefault(c => c.Id == id);
         if (id == 3)
@@ -36,14 +46,33 @@ public class CustomerController : ControllerBase
     [HttpPost]
     public ActionResult<CustomerViewModel> Post([FromBody] CreateCustomerModel model)
     {
-        //Console.WriteLine(model);
         var mappedModel = Mapper(model);
         var service = new CustomerService();
         var domainModel = service.Create(mappedModel);
         var viewModel = Mapper(domainModel);
         return Ok(viewModel);
     }
-    
+
+    [HttpPut]
+    public ActionResult Update([FromBody] UpdateCustomerModel model)
+    {
+        var service = new CustomerService();
+
+        var domainModel = Mapper(model);
+        service.Update(domainModel);
+
+        return Ok();
+    }
+
+    [HttpDelete("{id}")]
+    public ActionResult Delete(int id)
+    {
+        var service = new CustomerService();
+        service.Delete(id);
+
+        return Ok();
+    }
+
     private Customer Mapper(CreateCustomerModel model)
     {
         return new Customer()

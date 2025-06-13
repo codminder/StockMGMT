@@ -6,10 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using WebApp.DataContracts;
 
-namespace WebApp.Controllers
-{
-    
-}
+namespace WebApp.Controllers;
+
 [AllowAnonymous]
 [Route("api/[controller")]
 [ApiController]
@@ -38,13 +36,16 @@ public class AuthController : ControllerBase
             new Claim(ClaimTypes.Name, userName)
         };
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Geheim"));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("GeheimGeheimGeheimGeheim"));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-        
+
         var token = new JwtSecurityToken(
-            issuer: "WebAppUI",
-            audience: "WebApp"
-            
-            )
+            issuer: "WebApp",
+            audience: "WebAppUI",
+            claims: claims,
+            expires: DateTime.Now.AddMinutes(30),
+            SigningCredentials: creds);
+
+        return token;
     }
-}
+};
