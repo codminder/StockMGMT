@@ -48,12 +48,10 @@ public class ProductController : ControllerBase
     }
 
     [HttpPut]
-    public ActionResult Update([FromBody] UpdateProductModel model)
+    public ActionResult Update([FromBody] UpdateProductModel model) // heeft niet!
     {
         var service = new ProductService();
-
         var domainModel = Mapper(model);
-        
         service.Update(domainModel);
 
         return Ok();
@@ -67,8 +65,6 @@ public class ProductController : ControllerBase
         service.Delete(id);
         return Ok();
     }
-
-
 
     private ProductViewModel[] Mapper(Product[] model)
     {

@@ -44,7 +44,7 @@ public class AuthController : ControllerBase
             audience: "WebAppUI",
             claims: claims,
             expires: DateTime.Now.AddMinutes(30),
-            SigningCredentials: creds);
+            signingCredentials: creds);
 
         return token;
     }
