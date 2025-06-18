@@ -1,10 +1,11 @@
 using WebApp.DataContracts;
 using WebApp.Models;
 using WebApp.Repositories;
+using WebApp.Interfaces.Services;
 
 namespace WebApp.Services;
 
-public class CustomerService
+public class CustomerService : ICustomerService
 {
     private readonly CustomerRepository repository;
 

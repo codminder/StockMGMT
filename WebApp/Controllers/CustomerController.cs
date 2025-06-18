@@ -1,7 +1,6 @@
-using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.DataContracts;
-using WebApp.MockData;
+using WebApp.Interfaces.Services;
 using WebApp.Models;
 using WebApp.Services;
 
@@ -11,6 +10,12 @@ namespace WebApp.Controllers;
 [ApiController]
 public class CustomerController : ControllerBase
 {
+    private readonly ICustomerService _customerService;
+
+    public CustomerController(ICustomerService customerService)
+    {
+        _customerService = customerService;
+    }
 
     [HttpGet]
     public CustomerViewModel[] Mapper(Customer[] model)
@@ -29,12 +34,8 @@ public class CustomerController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<CustomerViewModel> GetCustomer(int id)
     {
-        var customer = MockCustomerList.CustomerList.Customers.FirstOrDefault(c => c.Id == id);
-        if (id == 3)
-        {
-            return Unauthorized();
-        }
-
+        var customer = _customerService.GetCustomerById(id);
+        
         if (customer != null)
         {
             return Ok(customer);

@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.DataContracts;
+using WebApp.Interfaces.Services;
 using WebApp.Models;
-using WebApp.Services;
 
 namespace WebApp.Controllers;
 
@@ -11,11 +11,17 @@ namespace WebApp.Controllers;
 [ApiController]
 public class ProductController : ControllerBase
 {
+
+    private readonly IProductService _productService;
+
+    public ProductController(IProductService productService){
+        _productService = productService;
+    }
+
     [HttpGet]
     public ProductViewModel[] GetAll()
     {
-        var service = new ProductService();
-        var products = service.GetAll();
+        var products = _productService.GetAll();
         var viewModel = Mapper(products);
 
         return viewModel;
@@ -24,7 +30,7 @@ public class ProductController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<ProductViewModel> GetProduct(int id)
     {
-        var service = new ProductService();
+        var service = _productService;
         var product = service.GetProductById(id);
 
         if (product != null)
@@ -38,7 +44,7 @@ public class ProductController : ControllerBase
     [HttpPost]
     public ActionResult<ProductViewModel> Post([FromBody] CreateProductModel model)
     {
-        var service = new ProductService();
+        var service = _productService;
 
         var domainModel = Mapper(model);
         var createdModel = service.Create(domainModel);
@@ -50,7 +56,7 @@ public class ProductController : ControllerBase
     [HttpPut]
     public ActionResult Update([FromBody] UpdateProductModel model) // heeft niet!
     {
-        var service = new ProductService();
+        var service = _productService;
         var domainModel = Mapper(model);
         service.Update(domainModel);
 
@@ -60,13 +66,13 @@ public class ProductController : ControllerBase
     [HttpDelete("{id}")]
     public ActionResult Delete(int id)
     {
-        var service = new ProductService();
+        var service = _productService;
 
         service.Delete(id);
         return Ok();
     }
 
-    private ProductViewModel[] Mapper(Product[] model)
+    private static ProductViewModel[] Mapper(Product[] model)
     {
         List<ProductViewModel> products = new();
         foreach (var product in model)
@@ -78,7 +84,7 @@ public class ProductController : ControllerBase
         return products.ToArray();
     }
 
-    private ProductViewModel Mapper(Product model)
+    private static ProductViewModel Mapper(Product model)
     {
         return new ProductViewModel()
         {
@@ -92,7 +98,7 @@ public class ProductController : ControllerBase
     }
 
 
-    private Product Mapper(CreateProductModel model)
+    private static Product Mapper(CreateProductModel model)
     {
         return new Product()
         {

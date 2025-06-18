@@ -14,12 +14,22 @@ namespace WebApp.Controllers;
 
 public class AuthController : ControllerBase
 {
+    private readonly IUserService _userService;
+    public AuthController(IUserService userService)
+    {
+        _userService = userService;
+    }
+
     [HttpPost("login")]
     public ActionResult<string> Login([FromBody] LoginDto model)
     {
-        if (model.Username == "wald" && model.Password == "qwer")
+        var result = _userService.Login(model.Username, model.Password);
+
+
+        if (result != null)
         {
-            var jwt = GetToken(model.Username);
+            var jwt = GetToken(result.Email);
+
             return Ok(new
             {
                 token = new JwtSecurityTokenHandler().WriteToken(jwt)
@@ -29,19 +39,19 @@ public class AuthController : ControllerBase
         return Unauthorized();
     }
 
-    private JwtSecurityToken GetToken(string userName)
+    private JwtSecurityToken GetToken(string email)
     {
         var claims = new[]
         {
-            new Claim(ClaimTypes.Name, userName)
+            new Claim(ClaimTypes.Name, email)
         };
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("GeheimGeheimGeheimGeheim"));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("DitIsSuperSecretPlusZestienKarakters"));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(
-            issuer: "WebApp",
-            audience: "WebAppUI",
+            issuer: "StockMGMT",
+            audience: "StockMGMTUI",
             claims: claims,
             expires: DateTime.Now.AddMinutes(30),
             signingCredentials: creds);
