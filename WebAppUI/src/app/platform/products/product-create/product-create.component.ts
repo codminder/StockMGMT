@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './product-create.component.scss'
 })
 export class ProductCreateComponent {
-
+  title='Create new product';
 }

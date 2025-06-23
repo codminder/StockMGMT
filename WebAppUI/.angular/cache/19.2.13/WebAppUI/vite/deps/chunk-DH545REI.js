@@ -3,9 +3,14 @@ import {
   setClassMetadata,
   ɵɵdefineInjector,
   ɵɵdefineNgModule
-} from "./chunk-2KS4OVRL.js";
+} from "./chunk-WVI52MAL.js";
 
-// ../../../../node_modules/@angular/cdk/fesm2022/scrolling-BkvA05C8.mjs
+// node_modules/@angular/cdk/fesm2022/boolean-property-DaaVhX5A.mjs
+function coerceBooleanProperty(value) {
+  return value != null && `${value}` !== "false";
+}
+
+// node_modules/@angular/cdk/fesm2022/scrolling-BkvA05C8.mjs
 var RtlScrollAxisType;
 (function(RtlScrollAxisType2) {
   RtlScrollAxisType2[RtlScrollAxisType2["NORMAL"] = 0] = "NORMAL";
@@ -13,7 +18,7 @@ var RtlScrollAxisType;
   RtlScrollAxisType2[RtlScrollAxisType2["INVERTED"] = 2] = "INVERTED";
 })(RtlScrollAxisType || (RtlScrollAxisType = {}));
 
-// ../../../../node_modules/@angular/cdk/fesm2022/platform.mjs
+// node_modules/@angular/cdk/fesm2022/platform.mjs
 var PlatformModule = class _PlatformModule {
   static ɵfac = function PlatformModule_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _PlatformModule)();
@@ -74,13 +79,8 @@ function getSupportedInputTypes() {
   return supportedInputTypes;
 }
 
-// ../../../../node_modules/@angular/cdk/fesm2022/boolean-property-DaaVhX5A.mjs
-function coerceBooleanProperty(value) {
-  return value != null && `${value}` !== "false";
-}
-
 export {
-  getSupportedInputTypes,
-  coerceBooleanProperty
+  coerceBooleanProperty,
+  getSupportedInputTypes
 };
-//# sourceMappingURL=chunk-ZKHUCZBX.js.map
+//# sourceMappingURL=chunk-DH545REI.js.map

@@ -1,6 +1,6 @@
 import {
   isPlatformBrowser
-} from "./chunk-5ZUEHK7A.js";
+} from "./chunk-KVZW56RA.js";
 import {
   ApplicationRef,
   ElementRef,
@@ -13,9 +13,9 @@ import {
   inject,
   setClassMetadata,
   ɵɵdefineInjectable
-} from "./chunk-2KS4OVRL.js";
+} from "./chunk-WVI52MAL.js";
 
-// ../../../../node_modules/@angular/cdk/fesm2022/platform-DmdVEw_C.mjs
+// node_modules/@angular/cdk/fesm2022/platform-DmdVEw_C.mjs
 var hasV8BreakIterator;
 try {
   hasV8BreakIterator = typeof Intl !== "undefined" && Intl.v8BreakIterator;
@@ -76,7 +76,7 @@ var Platform = class _Platform {
   }], () => [], null);
 })();
 
-// ../../../../node_modules/@angular/cdk/fesm2022/style-loader-Cu9AvjH9.mjs
+// node_modules/@angular/cdk/fesm2022/style-loader-Cu9AvjH9.mjs
 var appsWithLoaders = /* @__PURE__ */ new WeakMap();
 var _CdkPrivateStyleLoader = class __CdkPrivateStyleLoader {
   _appRef;
@@ -125,7 +125,7 @@ var _CdkPrivateStyleLoader = class __CdkPrivateStyleLoader {
   }], null, null);
 })();
 
-// ../../../../node_modules/@angular/cdk/fesm2022/backwards-compatibility-DHR38MsD.mjs
+// node_modules/@angular/cdk/fesm2022/backwards-compatibility-DHR38MsD.mjs
 function _bindEventWithOptions(renderer, target, eventName, callback, options) {
   const major = parseInt(VERSION.major);
   const minor = parseInt(VERSION.minor);
@@ -138,7 +138,7 @@ function _bindEventWithOptions(renderer, target, eventName, callback, options) {
   };
 }
 
-// ../../../../node_modules/@angular/cdk/fesm2022/element-x4z00URv.mjs
+// node_modules/@angular/cdk/fesm2022/element-x4z00URv.mjs
 function coerceNumberProperty(value, fallbackValue = 0) {
   if (_isNumberValue(value)) {
     return Number(value);
@@ -159,4 +159,4 @@ export {
   coerceNumberProperty,
   coerceElement
 };
-//# sourceMappingURL=chunk-4DLV6NMD.js.map
+//# sourceMappingURL=chunk-C4ULJYLV.js.map

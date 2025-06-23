@@ -1,11 +1,11 @@
 import {
   InjectionToken
-} from "./chunk-2KS4OVRL.js";
+} from "./chunk-WVI52MAL.js";
 
-// ../../../../node_modules/@angular/common/fesm2022/dom_tokens-rA0ACyx7.mjs
+// node_modules/@angular/common/fesm2022/dom_tokens-rA0ACyx7.mjs
 var DOCUMENT = new InjectionToken(ngDevMode ? "DocumentToken" : "");
 
-// ../../../../node_modules/@angular/common/fesm2022/xhr-BfNfxNDv.mjs
+// node_modules/@angular/common/fesm2022/xhr-BfNfxNDv.mjs
 function parseCookieValue(cookieStr, name) {
   name = encodeURIComponent(name);
   for (const cookie of cookieStr.split(";")) {
@@ -47,4 +47,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-5ZUEHK7A.js.map
+//# sourceMappingURL=chunk-KVZW56RA.js.map

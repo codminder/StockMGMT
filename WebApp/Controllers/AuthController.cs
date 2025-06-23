@@ -5,11 +5,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using WebApp.DataContracts;
+using WebApp.Interfaces.Services;
 
 namespace WebApp.Controllers;
 
 [AllowAnonymous]
-[Route("api/[controller")]
+[Route("api/[controller]")]
 [ApiController]
 
 public class AuthController : ControllerBase

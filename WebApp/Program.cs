@@ -9,7 +9,24 @@ using WebApp.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
+
+
+
+
+
+
+/*builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
@@ -18,6 +35,7 @@ builder.Services.AddCors(options =>
         .AllowAnyHeader();
     });
 });
+*/
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -39,13 +57,20 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connect
 
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+//builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+//builder.Services.AddSwaggerGen();
+
+
+
+
+
+
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
@@ -68,6 +93,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Geheim"))
     };
 });
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
