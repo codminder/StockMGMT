@@ -1,13 +1,13 @@
 import {
-  BidiModule
-} from "./chunk-GXXPBKKG.js";
-import {
   Platform,
   _CdkPrivateStyleLoader,
   _bindEventWithOptions,
   coerceElement,
   coerceNumberProperty
 } from "./chunk-C4ULJYLV.js";
+import {
+  BidiModule
+} from "./chunk-GXXPBKKG.js";
 import {
   DOCUMENT
 } from "./chunk-KVZW56RA.js";
@@ -2732,13 +2732,13 @@ var MatCommonModule = class _MatCommonModule {
 })();
 
 export {
+  normalizePassiveListenerOptions,
+  _getEventTarget,
   isFakeMousedownFromScreenReader,
   isFakeTouchstartFromScreenReader,
-  _getEventTarget,
-  normalizePassiveListenerOptions,
   FocusMonitor,
   ObserversModule,
   _IdGenerator,
   MatCommonModule
 };
-//# sourceMappingURL=chunk-7VU7M76L.js.map
+//# sourceMappingURL=chunk-NTZPIWY6.js.map

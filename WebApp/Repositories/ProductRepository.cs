@@ -1,7 +1,8 @@
+using WebApp.Interfaces.Repositories;
 using WebApp.Models;
 namespace WebApp.Repositories;
 
-public class ProductRepository
+public class ProductRepository : IProductRepository
 {
     private readonly AppDbContext _context;
 
