@@ -8,5 +8,5 @@ import { PlatformComponent } from './platform/platform.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'WebAppUI';
+  title = 'Stock management';
 }

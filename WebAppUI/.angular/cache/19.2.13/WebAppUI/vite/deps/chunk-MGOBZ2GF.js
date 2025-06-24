@@ -5,11 +5,6 @@ import {
   ɵɵdefineNgModule
 } from "./chunk-WVI52MAL.js";
 
-// node_modules/@angular/cdk/fesm2022/boolean-property-DaaVhX5A.mjs
-function coerceBooleanProperty(value) {
-  return value != null && `${value}` !== "false";
-}
-
 // node_modules/@angular/cdk/fesm2022/scrolling-BkvA05C8.mjs
 var RtlScrollAxisType;
 (function(RtlScrollAxisType2) {
@@ -79,8 +74,13 @@ function getSupportedInputTypes() {
   return supportedInputTypes;
 }
 
+// node_modules/@angular/cdk/fesm2022/boolean-property-DaaVhX5A.mjs
+function coerceBooleanProperty(value) {
+  return value != null && `${value}` !== "false";
+}
+
 export {
-  coerceBooleanProperty,
-  getSupportedInputTypes
+  getSupportedInputTypes,
+  coerceBooleanProperty
 };
-//# sourceMappingURL=chunk-DH545REI.js.map
+//# sourceMappingURL=chunk-MGOBZ2GF.js.map

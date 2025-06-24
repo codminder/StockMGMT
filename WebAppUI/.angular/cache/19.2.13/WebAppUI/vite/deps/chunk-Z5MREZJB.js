@@ -6700,7 +6700,7 @@ var UntypedFormBuilder = class _UntypedFormBuilder extends FormBuilder {
     }]
   }], null, null);
 })();
-var VERSION = new Version("19.2.13");
+var VERSION = new Version("19.2.14");
 var FormsModule = class _FormsModule {
   /**
    * @description
@@ -6854,9 +6854,9 @@ export {
 
 @angular/forms/fesm2022/forms.mjs:
   (**
-   * @license Angular v19.2.13
+   * @license Angular v19.2.14
    * (c) 2010-2025 Google LLC. https://angular.io/
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-QH2X53SP.js.map
+//# sourceMappingURL=chunk-Z5MREZJB.js.map

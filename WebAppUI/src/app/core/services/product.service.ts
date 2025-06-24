@@ -7,9 +7,10 @@ import { ProductViewModel } from '../dataContracts/productViewModel';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductService {
 
-  private url: string = 'https://localhost:1234/api'
+  private url: string = 'https://localhost:5016/api'
 
   constructor(private http: HttpClient) { }
 
