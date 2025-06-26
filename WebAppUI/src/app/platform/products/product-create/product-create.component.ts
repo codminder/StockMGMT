@@ -37,7 +37,7 @@ export class ProductCreateComponent {
       name: ['', Validators.required],
       description: [''],
       price: [0, [Validators.required, Validators.min(0)]],
-      discountpercentage: [0, [Validators.required, Validators.min(0), Validators.max(100)]],
+      discountPercentage: [0, [Validators.required, Validators.min(0), Validators.max(100)]],
       stock: [0, [Validators.required, Validators.min(0)]]
     });
   }

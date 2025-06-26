@@ -4,11 +4,11 @@ namespace WebApp.Interfaces.Repositories;
 
 public interface IProductRepository
 {
-    Product GetById(int id);
+    Task<Product> GetByIdAsync(int id);
     Product CreateProduct(Product product);
-    Product[] GetAll();
+    Task<Product[]> GetAllAsync();
     void UpdateProduct(Product product);
-    void DeleteById(int id);
+    Task DeleteByIdAsync(int id);
 
 }
 

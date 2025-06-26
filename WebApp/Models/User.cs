@@ -8,4 +8,5 @@ public class User
     public required DateTime Created { get; set; }
     public required DateTime LastLoginDate { get; set; }
     public string? ResetHeshCode { get; set; }
+    public required ICollection<Product> Products { get; set; }
 }

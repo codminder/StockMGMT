@@ -1,5 +1,6 @@
 using WebApp.Interfaces.Repositories;
 using WebApp.Models;
+using Microsoft.EntityFrameworkCore;
 namespace WebApp.Repositories;
 
 public class ProductRepository : IProductRepository
@@ -11,9 +12,9 @@ public class ProductRepository : IProductRepository
         _context = context;
     }
 
-    public Product GetById(int id)
+    public async Task<Product> GetByIdAsync(int id)
     {
-        return _context.Products.Single(x => x.Id == id);
+        return await _context.Products.SingleAsync(x => x.Id == id);
     }
     public Product CreateProduct(Product product)
     {
@@ -22,9 +23,9 @@ public class ProductRepository : IProductRepository
         return product;
     }
 
-    public Product[] GetAll()
+    public async Task<Product[]> GetAllAsync()
     {
-        return _context.Products.ToArray();
+        return await _context.Products.ToArrayAsync();
     }
 
     public void UpdateProduct(Product product)
@@ -33,9 +34,9 @@ public class ProductRepository : IProductRepository
         _context.SaveChanges();
     }
 
-    public void DeleteById(int id)
+    public async Task DeleteByIdAsync(int id)
     {
-        var productToBeDeleted = GetById(id);
+        var productToBeDeleted = await GetByIdAsync(id);
         _context.Products.Remove(productToBeDeleted);
         _context.SaveChanges();
     }

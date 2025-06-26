@@ -12,14 +12,14 @@ public class ProductService : IProductService
         _repository = repository;
     }
 
-    public Product[] GetAll()
+    public async Task<Product[]> GetAllAsync()
     {
-        return _repository.GetAll();
+        return await _repository.GetAllAsync();
     }
 
-    public Product GetProductById(int id)
+    public async Task<Product> GetProductByIdAsync(int id)
     {
-        return _repository.GetById(id);
+        return await _repository.GetByIdAsync(id);
     }
     public Product Create(Product product)
     {
@@ -27,14 +27,14 @@ public class ProductService : IProductService
         return createdProduct;
     }
 
-    public void Delete(int id)
+    public async Task DeleteAsync(int id)
     {
-        _repository.DeleteById(id);
+        await _repository.DeleteByIdAsync(id);
     }
 
-    public void Update(Product product)
+    public async Task UpdateAsync(Product product)
     {
-        var dbModel = _repository.GetById(product.Id);
+        var dbModel = await _repository.GetByIdAsync(product.Id);
 
         dbModel.Name = product.Name;
         dbModel.Description = product.Description;

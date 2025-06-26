@@ -28,20 +28,19 @@ export class ProductUpdateComponent {
   ) {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
-      if (id) {
-        const numericId = Number(id){
-          this.productId = numericId;
-          
-          this.productService.getById(numericId).subscribe(product => {
-            this.productForm = this.fb.group({
-              name: [product.name, Validators.required],
-              description: [product.description],
-              price: [product.price, [Validators.required, Validators.min(0)]],
-              discountPercentage: [product.discountPercentage, [Validators.required, Validators.min(0), Validators.max(100)]],
-              stock: [product.stock, [Validators.required, Validators.min(0)]]
-            });
+        if (id) {
+        const numericId = Number(id);
+        this.productId = numericId;
+        
+        this.productService.getById(numericId).subscribe(product => {
+          this.productForm = this.fb.group({
+            name: [product.name, Validators.required],
+            description: [product.description],
+            price: [product.price, [Validators.required, Validators.min(0)]],
+            discountPercentage: [product.discountPercentage, [Validators.required, Validators.min(0), Validators.max(100)]],
+            stock: [product.stock, [Validators.required, Validators.min(0)]]
           });
-        }
+        });
       }
     });
   }

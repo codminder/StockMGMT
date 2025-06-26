@@ -12,4 +12,6 @@ public class Product
     public int? DiscountPercentage { get; set; }
     [NotMapped]
     public decimal CalculateDiscounted => DiscountPercentage.HasValue ? Price * (1 - (DiscountPercentage.Value / 100m)) : Price;
+    public int UserId { get; set; }
+    public User User { get; set; }
 }

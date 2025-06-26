@@ -19,19 +19,18 @@ public class ProductController : ControllerBase
     }
 
     [HttpGet]
-    public ProductViewModel[] GetAll()
+    public async Task<ActionResult<ProductViewModel[]>> GetAllAsync()
     {
-        var products = _productService.GetAll();
+        var products = await _productService.GetAllAsync();
         var viewModel = Mapper(products);
 
         return viewModel;
     }
 
     [HttpGet("{id}")]
-    public ActionResult<ProductViewModel> GetProduct(int id)
+    public async Task<ActionResult<ProductViewModel>> GetProduct(int id)
     {
-        var service = _productService;
-        var product = service.GetProductById(id);
+        var product = await _productService.GetProductByIdAsync(id);
 
         if (product != null)
         {
@@ -44,37 +43,32 @@ public class ProductController : ControllerBase
     [HttpPost]
     public ActionResult<ProductViewModel> Post([FromBody] CreateProductModel model)
     {
-        var service = _productService;
-
         var domainModel = Mapper(model);
-        var createdModel = service.Create(domainModel);
+        var createdModel = _productService.Create(domainModel);
         var viewModel = Mapper(createdModel);
         return Ok(viewModel);
 
     }
 
     [HttpPut]
-    public ActionResult Update([FromBody] UpdateProductModel model) // heeft niet!
+    public async Task<ActionResult> UpdateAsync([FromBody] UpdateProductModel model) // heeft niet!
     {
-        var service = _productService;
         var domainModel = Mapper(model);
-        service.Update(domainModel);
+        await _productService.UpdateAsync(domainModel);
 
         return Ok();
     }
 
     [HttpDelete("{id}")]
-    public ActionResult Delete(int id)
+    public async Task<ActionResult> DeleteAsync(int id)
     {
-        var service = _productService;
-
-        service.Delete(id);
+        await _productService.DeleteAsync(id);
         return Ok();
     }
 
     private static ProductViewModel[] Mapper(Product[] model)
     {
-        List<ProductViewModel> products = new();
+        List<ProductViewModel> products = [];
         foreach (var product in model)
         {
             var mappedObject = Mapper(product);
