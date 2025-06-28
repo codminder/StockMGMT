@@ -21,7 +21,7 @@ public class ProductController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<ProductViewModel[]>> GetAllAsync()
     {
-        var products = await _productService.GetAllAsync();
+        var products = await _productService.GetAsync();
         var viewModel = Mapper(products);
 
         return viewModel;
@@ -30,7 +30,7 @@ public class ProductController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<ProductViewModel>> GetProduct(int id)
     {
-        var product = await _productService.GetProductByIdAsync(id);
+        var product = await _productService.GetAsync(id);
 
         if (product != null)
         {
@@ -41,10 +41,10 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult<ProductViewModel> Post([FromBody] CreateProductModel model)
+    public async Task<ActionResult<ProductViewModel>> PostAsync([FromBody] CreateProductModel model)
     {
         var domainModel = Mapper(model);
-        var createdModel = _productService.Create(domainModel);
+        var createdModel = await _productService.CreateAsync(domainModel);
         var viewModel = Mapper(createdModel);
         return Ok(viewModel);
 

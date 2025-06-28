@@ -1,0 +1,23 @@
+<div class="product-view mat-elevation-z4" style="padding: 24px; border-radius: 8px; background: var(--background, #fff);">
+    <h2 class="mat-headline-5" color="primary">Product Details</h2>
+    <div *ngIf="product" class="mat-body-1">
+        <mat-list>
+            <mat-list-item>
+                <span matLine><strong>Naam:</strong> {{ product.name }}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matLine><strong>Omschrijving:</strong> {{ product.description }}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matLine><strong>Prijs:</strong> {{ product.price | currency }}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matLine><strong>Voorraad:</strong> {{ product.stock }}</span>
+            </mat-list-item>
+        </mat-list>
+    </div>
+    <div *ngIf="!product" class="mat-body-1">
+        <mat-progress-spinner mode="indeterminate" diameter="32" color="primary"></mat-progress-spinner>
+        <span style="margin-left: 16px;">Laden...</span>
+    </div>
+</div>

@@ -1,12 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 using WebApp.DataContracts;
 using WebApp.Interfaces.Services;
-using WebApp.Models;
+
 
 namespace WebApp.Controllers;
 
@@ -30,7 +27,7 @@ public class AuthController : ControllerBase
 
         if (result != null)
         {
-            var jwt = GetToken(result);
+            var jwt = _userService.GetToken(result);
 
             return Ok(new
             {
@@ -39,26 +36,5 @@ public class AuthController : ControllerBase
         }
 
         return Unauthorized();
-    }
-
-    private JwtSecurityToken GetToken(User user)
-    {
-        var claims = new[]
-        {
-            new Claim(ClaimTypes.Name, user.Email),
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
-        };
-
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("DitIsSuperSecretPlusZestienKarakters"));
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-        var token = new JwtSecurityToken(
-            issuer: "StockMGMT",
-            audience: "StockMGMTUI",
-            claims: claims,
-            expires: DateTime.Now.AddMinutes(30),
-            signingCredentials: creds);
-
-        return token;
     }
 };
