@@ -1,7 +1,7 @@
 using WebApp.Interfaces.Repositories;
 using WebApp.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
+
 namespace WebApp.Repositories;
 
 public class ProductRepository : IProductRepository
@@ -19,8 +19,9 @@ public class ProductRepository : IProductRepository
     }
     public async Task<Product> CreateAsync(Product product)
     {
-        _context.Products.Add(product);
-        await _context.SaveChanges();
+        await _context.Products.AddAsync(product);
+        await _context.SaveChangesAsync();
+
         return product;
     }
 
@@ -32,14 +33,14 @@ public class ProductRepository : IProductRepository
     public async Task UpdateAsync(Product product)
     {
         _context.Products.Update(product);
-        await _context.SaveChanges();
+        await _context.SaveChangesAsync();
     }
 
-    public async Task DeleteByIdAsync(int id)
+    public async Task DeleteAsync(int id)
     {
         var productToBeDeleted = await GetAsync(id);
         _context.Products.Remove(productToBeDeleted);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
     }
     
 }

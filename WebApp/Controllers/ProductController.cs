@@ -14,7 +14,8 @@ public class ProductController : ControllerBase
 
     private readonly IProductService _productService;
 
-    public ProductController(IProductService productService){
+    public ProductController(IProductService productService)
+    {
         _productService = productService;
     }
 
@@ -75,7 +76,7 @@ public class ProductController : ControllerBase
             products.Add(mappedObject);
         }
 
-        return products.ToArray();
+        return [.. products];
     }
 
     private static ProductViewModel Mapper(Product model)
@@ -96,6 +97,19 @@ public class ProductController : ControllerBase
     {
         return new Product()
         {
+            Name = model.Name,
+            Description = model.Description,
+            Price = model.Price,
+            Stock = model.Stock,
+            DiscountPercentage = model.DiscountPercentage
+        };
+    }
+
+    private static Product Mapper(UpdateProductModel model)
+    {
+        return new Product()
+        {
+            Id = model.Id,
             Name = model.Name,
             Description = model.Description,
             Price = model.Price,

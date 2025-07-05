@@ -1,7 +1,7 @@
 <div class="products-container">
     <div class="products-header">
         <h1>Products</h1>
-        <button mat-raised-button color="primary" routerLink="/products/create">New product</button>
+        <button mat-raised-button color="primary" routerLink="/platform/products/create">New product</button>
     </div>
     <div class="products-list">
         <table class="table">
@@ -15,7 +15,7 @@
             <tbody>
                 <tr *ngFor="let product of products">
                     <td>{{ product.name }}</td>
-                    <td>{{ product.discountedPrice | currency }}</td>
+                    <td>{{ product.calculateDiscounted | currency }}</td>
                     <td>{{ product.stock }}</td>
                     <td>
                         <button mat-icon-button color="accent" [routerLink]="['/platform/products', product.id]">

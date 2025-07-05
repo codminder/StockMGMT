@@ -1,7 +1,7 @@
 ﻿using WebApp.Interfaces.Repositories;
 using WebApp.Models;
 
-namespace WebAppnt.Repositories;
+namespace WebApp.Repositories;
 
 public class UserRepository : IUserRepository
 {

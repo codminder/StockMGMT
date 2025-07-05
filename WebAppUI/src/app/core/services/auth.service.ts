@@ -7,7 +7,7 @@ import { LoginDto } from "../dataContracts/loginDto";
     providedIn: 'root',
 })
 export class AuthService {
-    private url: string = "https://localhost:7237/api";
+    private url: string = "http://localhost:5016/api";
     constructor(private http: HttpClient) { }
 
     public login(loginDto: LoginDto): Observable<string> {

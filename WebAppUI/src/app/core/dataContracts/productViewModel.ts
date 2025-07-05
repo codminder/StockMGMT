@@ -5,5 +5,5 @@ export interface ProductViewModel {
     price: number;
     stock: number;
     discountPercentage?: number;
-    discountedPrice: number;
+    calculateDiscounted: number;
 }

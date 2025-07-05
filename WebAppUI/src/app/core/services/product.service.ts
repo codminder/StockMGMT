@@ -11,7 +11,7 @@ import { UpdateProductModel } from '../dataContracts/updateProductModel';
 
 export class ProductService {
 
-  private url: string = 'https://localhost:5016/api'
+  private url: string = 'http://localhost:5016/api'
 
   constructor(private http: HttpClient) { }
 
@@ -24,7 +24,7 @@ export class ProductService {
   }
 
   public create(productToCreate: CreateProductModel): Observable<ProductViewModel> {
-    return this.http.post<ProductViewModel>(`${this.url}/products`, productToCreate);
+    return this.http.post<ProductViewModel>(`${this.url}/product`, productToCreate);
   }
 
   public update(productToUpdate: UpdateProductModel): Observable<ProductViewModel> {

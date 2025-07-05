@@ -33,8 +33,8 @@ export class LoginComponent {
     if (this.loginForm.valid){
       const loginDto: LoginDto = this.loginForm.value;
       this.authService.login(loginDto).subscribe({
-        next: (token: string) => {
-          localStorage.setItem('token', token);
+        next: (result: any) => {
+          localStorage.setItem('token', result.token);
           this.router.navigate(['/platform']);
         },
         error: (err: string) => {

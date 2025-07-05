@@ -13,12 +13,12 @@ public class ProductService : IProductService
         _userService = userService;
     }
 
-    public async Task<Product[]> GetAllAsync()
+    public async Task<Product[]> GetAsync()
     {
         return await _productRepository.GetAsync();
     }
 
-    public async Task<Product> GetProductByIdAsync(int id)
+    public async Task<Product> GetAsync(int id)
     {
         return await _productRepository.GetAsync(id);
     }
@@ -35,7 +35,7 @@ public class ProductService : IProductService
         await _productRepository.DeleteAsync(id);
     }
 
-    public async Task UpdateAsync(Product product)
+public async Task UpdateAsync(Product product)
     {
         var dbModel = await _productRepository.GetAsync(product.Id);
 
@@ -47,14 +47,5 @@ public class ProductService : IProductService
 
         await _productRepository.UpdateAsync(dbModel);
     }
-
-    public Task<Product[]> GetAsync()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Product> GetAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
 }
+
