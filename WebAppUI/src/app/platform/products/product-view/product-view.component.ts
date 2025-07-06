@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { materialize } from 'rxjs';
 import { ProductComponent } from '../products.component';
 import { ProductService } from '../../../core/services/product.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatListModule } from '@angular/material/list'
+import { MatProgressSpinner, MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ProductViewModel } from '../../../core/dataContracts/productViewModel';
 
 @Component({
   selector: 'app-product-view',
@@ -15,7 +17,7 @@ export class ProductViewComponent {
   public product?: ProductViewModel;
 
   constructor(
-    privae route: ActivatedRoute,
+    private route: ActivatedRoute,
     private productService: ProductService
   ) {
     this.route.paramMap.subscribe(params => {

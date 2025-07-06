@@ -22,7 +22,7 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public ActionResult<string> Login([FromBody] LoginDto model)
     {
-        var result = _userService.Login(model.Username, model.Password);
+        var result = _userService.Login(model.Email, model.Password);
 
 
         if (result != null)
