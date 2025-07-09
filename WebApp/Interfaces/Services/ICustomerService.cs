@@ -4,8 +4,9 @@ namespace WebApp.Interfaces.Services;
 
 public interface ICustomerService
 {
-    Customer[] GetAll();
-    Customer GetCustomerById(int id);
-    void Delete(int id);
-    void Update(Customer customer);
+    Task<Customer> CreateAsync(Customer customer);
+    Task<Customer[]> GetAsync();
+    Task<Customer> GetAsync(int id);
+    Task DeleteAsync(int id);
+    Task UpdateAsync(Customer customer);
 }

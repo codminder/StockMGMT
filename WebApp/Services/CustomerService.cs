@@ -2,57 +2,52 @@ using WebApp.DataContracts;
 using WebApp.Models;
 using WebApp.Repositories;
 using WebApp.Interfaces.Services;
+using WebApp.Interfaces.Repositories;
 
 namespace WebApp.Services;
 
 public class CustomerService : ICustomerService
 {
-    private readonly CustomerRepository repository;
+    private readonly ICustomerRepository _repository;
 
-    public CustomerService()
+    public CustomerService(ICustomerRepository repository)
     {
-        repository = new CustomerRepository();
+        _repository = repository;
     }
 
-    public Customer[] GetAll()
+    public async Task<Customer[]> GetAsync()
     {
-        return repository.GetAll();
+        return await _repository.GetAsync();
     }
 
-    public Customer GetCustomerById(int id)
+    public async Task<Customer> GetAsync(int id)
     {
-        return repository.GetById(id);
+        return await _repository.GetAsync(id);
     }
 
-    public Customer Create(Customer customer)
+    public async Task<Customer> CreateAsync(Customer customer)
     {
-        var createdCustomer = repository.CreateCustomer(customer);
+        var createdCustomer = await _repository.CreateAsync(customer);
         return createdCustomer;
     }
 
-    public void Delete(int id)
+    public async Task DeleteAsync(int id)
     {
-        repository.DeleteById(id);
+        await _repository.DeleteAsync(id);
     }
 
-    public void Update(Customer customer)
+    public async Task UpdateAsync(Customer customer)
     {
-        var dbModel = repository.GetById(customer.Id);
+        var dbModel = await _repository.GetAsync(customer.Id);
 
         dbModel.FirstName = customer.FirstName;
         dbModel.LastName = customer.LastName;
         dbModel.AppartmentNumber = customer.AppartmentNumber;
         dbModel.PostalCode = customer.PostalCode;
         dbModel.Street = customer.Street;
-        repository.UpdateCustomer(dbModel);
+
+        await _repository.UpdateAsync(dbModel);
     }
     
-    
-    /*
-    public CustomerViewModel GetById(int id)
-    {
-        return null;
-    }
-    */
     
 }

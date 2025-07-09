@@ -18,7 +18,15 @@ public class CustomerController : ControllerBase
     }
 
     [HttpGet]
-    public CustomerViewModel[] Mapper(Customer[] model)
+    public async Task<ActionResult<CustomerViewModel[]>> GetAllAsync()
+    {
+        var customers = await _customerService.GetAsync();
+        var viewModel = Mapper(customers);
+
+        return viewModel;
+    }
+
+    private CustomerViewModel[] Mapper(Customer[] model)
     {
         List<CustomerViewModel> customers = new();
         foreach (var customer in model)
@@ -34,7 +42,7 @@ public class CustomerController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<CustomerViewModel> GetCustomer(int id)
     {
-        var customer = _customerService.GetCustomerById(id);
+        var customer = _customerService.GetAsync(id);
         
         if (customer != null)
         {
@@ -45,31 +53,28 @@ public class CustomerController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult<CustomerViewModel> Post([FromBody] CreateCustomerModel model)
+    public async Task<ActionResult<CustomerViewModel>> Post([FromBody] CreateCustomerModel model)
     {
         var mappedModel = Mapper(model);
-        var service = new CustomerService();
-        var domainModel = service.Create(mappedModel);
+
+        var domainModel = await _customerService.CreateAsync(mappedModel);
         var viewModel = Mapper(domainModel);
         return Ok(viewModel);
     }
 
     [HttpPut]
-    public ActionResult Update([FromBody] UpdateCustomerModel model)
+    public async Task<ActionResult> UpdateAsync([FromBody] UpdateCustomerModel model)
     {
-        var service = new CustomerService();
-
         var domainModel = Mapper(model);
-        service.Update(domainModel);
+        await _customerService.UpdateAsync(domainModel);
 
         return Ok();
     }
 
     [HttpDelete("{id}")]
-    public ActionResult Delete(int id)
+    public async Task<ActionResult> Delete(int id)
     {
-        var service = new CustomerService();
-        service.Delete(id);
+        await _customerService.DeleteAsync(id);
 
         return Ok();
     }

@@ -5,10 +5,6 @@ import { jwtDecode } from 'jwt-decode';
 @Injectable({
     providedIn: 'root'
 })
-
-
-
-
 export class AuthGuard implements CanActivate {
 
   constructor(private router: Router) {}

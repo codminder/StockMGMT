@@ -4,9 +4,9 @@ namespace WebApp.Interfaces.Repositories;
 
 public interface ICustomerRepository
 {
-    Customer GetById(int id);
-    Customer CreateCustomer(Customer customer);
-    Customer[] GetAll();
-    void UpdateCustomer(Customer customer);
-    void DeleteById(int id);
+    Task<Customer> GetAsync(int id);
+    Task<Customer> CreateAsync(Customer customer);
+    Task<Customer[]> GetAsync();
+    Task UpdateAsync(Customer customer);
+    Task DeleteAsync(int id);
 }

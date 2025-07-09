@@ -5,10 +5,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule, Router } from '@angular/router';
 import { CustomerService } from '../../../core/services/customer.service';
+import { CreateCustomerModel } from '../../../core/dataContracts/createCustomerModel';
 
 @Component({
   selector: 'app-customer-create',
-  standalone: true;
+  standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -29,13 +30,27 @@ export class CustomerCreateComponent {
     private router: Router
   )
   {
-    this.productForm = this.fb.group({
-      name: ['', Validators.required],
+    this.customerForm = this.fb.group({
+      firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       street: ['', Validators.required],
       postalCode: ['', Validators.required],
       appartmentNumber: ['', Validators.required],
-    })
+    });
+  }
+
+  createCustomer() {
+    if (this.customerForm.valid) {
+      const customer: CreateCustomerModel = this.customerForm.value;
+      this.customerService.create(customer).subscribe({
+        next: (_) => {
+          this.router.navigate(['/platform/customers']);
+        },
+        error: (err) => {
+          console.error('Customer creation failed:', err);
+        }
+      });
+    }
   }
 
 }

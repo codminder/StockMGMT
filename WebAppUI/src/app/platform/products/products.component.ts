@@ -5,7 +5,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ProductService } from '../../core/services/product.service';
 import { ProductViewModel } from '../../core/dataContracts/productViewModel';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-products',

@@ -1,15 +1,34 @@
-customer create
+<form [formGroup]="customerForm" class="customer-form" *ngIf="customerForm">
 
-<form [formGroup]="productForm" class="product-form" *ngif="productForm">
     <h1>Create new Customer</h1>
 
     <mat-form-field appearance="fill" class="form-field">
-        <mat-label>Name</mat-label>
-        <input matInput type="text" formControlName="name" required class="input-name"/>
+        <mat-label>First Name:</mat-label>
+        <input matInput type="text" formControlName="firstName" required class="input-name" />
     </mat-form-field><br>
 
     <mat-form-field appearance="fill" class="form-field">
-        <mat-label>Last Name</mat-label>
-        <input matInput type="text" formControlname="last-name" required min="2" max="10" class="input-last-name"/>
-    <mat-form-field/><br>
+        <mat-label>Last Name:</mat-label>
+        <input matInput type="text" formControlName="lastName" required class="input-name" />
+    </mat-form-field><br>
+
+    <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Street:</mat-label>
+        <input matInput type="text" formControlName="street" required class="input-name" />
+    </mat-form-field><br>
+
+    <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Postal Code:</mat-label>
+        <input matInput type="text" formControlName="postalCode" required class="input-name" />
+    </mat-form-field><br>
+
+    <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Appartment Number:</mat-label>
+        <input matInput type="text" formControlName="appartmentNumber" required class="input-name" />
+    </mat-form-field><br>
+    <button mat-raised-button color="primary" [disabled]="!customerForm.valid" (click)="createCustomer()"
+        class="create-customer-btn">
+        Create new Customer
+    </button>
+
 </form>

@@ -1,9 +1,10 @@
 using WebApp.Models;
 using Microsoft.EntityFrameworkCore;
+using WebApp.Interfaces.Repositories;
 
 namespace WebApp.Repositories;
 
-public class CustomerRepository
+public class CustomerRepository : ICustomerRepository
 {
     private readonly AppDbContext _context;
 
@@ -15,32 +16,35 @@ public class CustomerRepository
         _context = new AppDbContext(optionBuilder.Options);
     }
 
-    public Customer GetById(int id)
+    public async Task<Customer> GetAsync(int id)
     {
-        return _context.Customers.Single(x => x.Id == id);
+        return await _context.Customers.SingleAsync(x => x.Id == id);
     }
-    public Customer CreateCustomer(Customer customer)
+
+    public async Task<Customer[]> GetAsync()
     {
-        _context.Customers.Add(customer);
-        _context.SaveChanges();
+        return await _context.Customers.ToArrayAsync();
+    }
+
+    public async Task<Customer> CreateAsync(Customer customer)
+    {
+        await _context.Customers.AddAsync(customer);
+        await _context.SaveChangesAsync();
         return customer;
     }
 
-    public Customer[] GetAll()
-    {
-        return _context.Customers.ToArray();
-    }
 
-    public void UpdateCustomer(Customer customer)
+
+    public async Task UpdateAsync(Customer customer)
     {
         _context.Customers.Update(customer);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
     }
 
-    public void DeleteById(int id)
+    public async Task DeleteAsync(int id)
     {
-        var customerToBeDeleted = GetById(id);
+        var customerToBeDeleted = await GetAsync(id);
         _context.Customers.Remove(customerToBeDeleted);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
     }
 }

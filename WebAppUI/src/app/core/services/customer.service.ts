@@ -10,7 +10,7 @@ import { UpdateCustomerModel } from "../dataContracts/updateCustomerModel";
     providedIn: 'root'
 })
 export class CustomerService {
-private url: string = 'https://localhost:5016/api'
+private url: string = 'http://localhost:5016/api'
 
   constructor(private http: HttpClient) { }
 
