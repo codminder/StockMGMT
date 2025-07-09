@@ -5,9 +5,6 @@ import { LoginDto } from "../dataContracts/loginDto";
 import { RegisterDto } from "../dataContracts/registerDto";
 
 
-interface LoginResponse {
-    token: string;
-}
 
 @Injectable({
     providedIn: 'root',

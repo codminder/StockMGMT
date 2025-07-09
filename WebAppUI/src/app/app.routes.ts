@@ -8,12 +8,14 @@ import { ProductUpdateComponent } from './platform/products/product-update/produ
 import { CustomerCreateComponent } from './platform/customers/customer-create/customer-create.component';
 import { CustomerUpdateComponent } from './platform/customers/customer-update/customer-update.component';
 import { CustomersComponent } from './platform/customers/customers.component';
+import { PlatformComponent } from './platform/platform.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     {
         path: 'platform',
         canActivate: [AuthGuard],
+        component: PlatformComponent,
         children: [
             {
                 path: 'products', children: [
@@ -35,6 +37,6 @@ export const routes: Routes = [
             }
         ]
     },
-    
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: '**', redirectTo: 'login' }
 ];

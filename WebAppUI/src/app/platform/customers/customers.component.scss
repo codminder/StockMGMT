@@ -1,0 +1,21 @@
+.customers-container {
+    display: flex;
+    flex-direction: column;
+        .customers-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .customers-list {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .customers-table {
+            width: 100%;
+            text-align: right;
+        }
+    }
+}
+
