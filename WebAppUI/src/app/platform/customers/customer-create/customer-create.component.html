@@ -1,0 +1,15 @@
+customer create
+
+<form [formGroup]="productForm" class="product-form" *ngif="productForm">
+    <h1>Create new Customer</h1>
+
+    <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name" required class="input-name"/>
+    </mat-form-field><br>
+
+    <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" formControlname="last-name" required min="2" max="10" class="input-last-name"/>
+    <mat-form-field/><br>
+</form>
