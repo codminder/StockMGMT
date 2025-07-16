@@ -1,4 +1,7 @@
 export interface RegisterDto {
-    email: string;
-    password: string;
+    firstName: string;
+    lastName: string;
+    street: string;
+    postalCode: string;
+    appartmentNumber: number;
 }

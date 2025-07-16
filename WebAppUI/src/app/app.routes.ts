@@ -9,9 +9,11 @@ import { CustomerCreateComponent } from './platform/customers/customer-create/cu
 import { CustomerUpdateComponent } from './platform/customers/customer-update/customer-update.component';
 import { CustomersComponent } from './platform/customers/customers.component';
 import { PlatformComponent } from './platform/platform.component';
+import { RegisterComponent } from './authentication/register/register.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
     {
         path: 'platform',
         canActivate: [AuthGuard],

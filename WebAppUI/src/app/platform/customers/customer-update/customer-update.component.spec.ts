@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomerUpdateComponent } from './customer-update.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('CustomerUpdateComponent', () => {
   let component: CustomerUpdateComponent;
@@ -8,7 +9,10 @@ describe('CustomerUpdateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CustomerUpdateComponent]
+      imports: [
+        CustomerUpdateComponent,
+        ReactiveFormsModule,
+      ]
     })
     .compileComponents();
 

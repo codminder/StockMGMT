@@ -54,7 +54,7 @@ export class ProductUpdateComponent {
           this.router.navigate(['/platform/products']);
         },
         error:(err) => {
-          console.error('Poduct update failed:', err);
+          window.alert('Product update failed' + err)
         }
       });
     }

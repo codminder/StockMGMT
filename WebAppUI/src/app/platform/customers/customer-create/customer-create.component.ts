@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterModule, Router } from '@angular/router';
 import { CustomerService } from '../../../core/services/customer.service';
 import { CreateCustomerModel } from '../../../core/dataContracts/createCustomerModel';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-customer-create',
@@ -16,10 +17,11 @@ import { CreateCustomerModel } from '../../../core/dataContracts/createCustomerM
     FormsModule,
     RouterModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule
   ],
   templateUrl: './customer-create.component.html',
-  styleUrl: './customer-create.component.scss'
+  styleUrls: ['./customer-create.component.scss']
 })
 export class CustomerCreateComponent {
   customerForm: FormGroup;

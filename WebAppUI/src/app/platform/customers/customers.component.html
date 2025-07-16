@@ -20,14 +20,13 @@
                     <td>{{ customer.postalCode }}</td>
                     <td>{{ customer.appartmentNumber }}</td>
                     <td>
-                        <button mat-icon-button color="accent" [routerLink]="['/platform/products', product.id]">
+                        <button mat-icon-button color="accent" [routerLink]="['/platform/customers', customer.id]">
                             <mat-icon class="blue-icon">visibility</mat-icon>
                         </button>
-                        <button mat-icon-button color="secondary"
-                            [routerLink]="['/platform/products/edit', product.id]">
+                        <button mat-icon-button color="secondary" [routerLink]="['/platform/customers/edit', customer.id]">
                             <mat-icon class="blue-icon">edit</mat-icon>
                         </button>
-                        <button mat-icon-button color="secondary" (click)="deleteProduct(product.id)">
+                        <button mat-icon-button color="secondary" (click)="deleteCustomer(customer.id)">
                             <mat-icon class="blue-icon">delete</mat-icon>
                         </button>
                     </td>
