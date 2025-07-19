@@ -1,69 +1,84 @@
-* {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-.login-container {
-    width: 250px;
-    height: 350px;
-    margin: 0 auto;
-    text-align: center;
-    box-shadow: 0 4px 6px rgb(0, 0, 0.2);
-    border-radius: 10px;
-    border: 1px solid black;
-    position: relative;
-    padding: 0 10px;
-    background-color: rgb(87, 109, 109);
-}
-
+/* Outer container to center the login box */
 .container {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f4f6f9;
+  font-family: Arial, sans-serif;
 }
 
-h2 {
-    color: #444;
-    margin-top: 20px;
+/* Login box */
+.login-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
+/* Heading */
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-input {
-    margin: 0 5px;
+/* Material form fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
 }
 
+/* Login button */
+button[mat-raised-button] {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Options: remember me + forgot password */
 .options {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    font-size: 1,1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 14px;
 }
 
-.options input {
-    margin-top: 0em;
-    margin-right: 0.2em;
+.options label {
+  color: #555;
+  cursor: pointer;
 }
 
 .options a {
-    text-decoration: none;
-    color: white;
-    margin-left: auto;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.options a:hover {
+  text-decoration: underline;
+}
+
+/* Register link */
+.register-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
 }

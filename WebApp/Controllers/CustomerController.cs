@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.DataContracts;
 using WebApp.Interfaces.Services;
@@ -23,60 +24,80 @@ public class CustomerController : ControllerBase
         var customers = await _customerService.GetAsync();
         var viewModel = Mapper(customers);
 
-        return viewModel;
+        return Ok(viewModel);
     }
 
-    private CustomerViewModel[] Mapper(Customer[] model)
+    private Customer Mapper(UpdateCustomerModel model)
     {
-        List<CustomerViewModel> customers = new();
-        foreach (var customer in model)
+        return new Customer()
         {
-            var mappedModel = Mapper(customer);
-            customers.Add(mappedModel);
-        }
+            Id = model.Id,
+            FirstName = model.FirstName,
+            LastName = model.LastName,
+            Street = model.Street,
+            PostalCode = model.PostalCode,
+            AppartmentNumber = model.AppartmentNumber
+        };
+    }
 
-        return customers.ToArray();
+     private CustomerViewModel[] Mapper(Customer[] model)
+    {
+        return model.Select(Mapper).ToArray();
 
     }
 
     [HttpGet("{id}")]
-    public ActionResult<CustomerViewModel> GetCustomer(int id)
+    public async Task<ActionResult<CustomerViewModel>> GetCustomer(int id)
     {
-        var customer = _customerService.GetAsync(id);
-        
-        if (customer != null)
+        var customer = await _customerService.GetAsync(id);
+
+        if (customer == null)
         {
-            return Ok(customer);
+            return NotFound();
         }
 
-        return NotFound();
+        return Ok(Mapper(customer));
     }
 
     [HttpPost]
     public async Task<ActionResult<CustomerViewModel>> Post([FromBody] CreateCustomerModel model)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
         var mappedModel = Mapper(model);
 
         var domainModel = await _customerService.CreateAsync(mappedModel);
         var viewModel = Mapper(domainModel);
-        return Ok(viewModel);
+
+        return CreatedAtAction(nameof(GetCustomer), new { id = viewModel.Id }, viewModel);
     }
 
     [HttpPut]
     public async Task<ActionResult> UpdateAsync([FromBody] UpdateCustomerModel model)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest();
+        }
         var domainModel = Mapper(model);
         await _customerService.UpdateAsync(domainModel);
 
-        return Ok();
+        return NoContent();
     }
 
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {
-        await _customerService.DeleteAsync(id);
+        var customer = await _customerService.GetAsync(id);
+        if (customer == null)
+        {
+            return NotFound();
+        }
 
-        return Ok();
+        await _customerService.DeleteAsync(id);
+        return NoContent();
     }
 
     private Customer Mapper(CreateCustomerModel model)

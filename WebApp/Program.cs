@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using WebApp.Interfaces.Repositories;
 using WebApp.Interfaces.Services;
+using WebApp.Middlewares;
 using WebApp.Models;
 using WebApp.Repositories;
 using WebApp.Services;
@@ -78,6 +79,8 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 //app.UseHttpsRedirection();
 
