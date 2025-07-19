@@ -1,37 +1,39 @@
 <div class="customers-container">
-    <div class="customers-header">
-        <h2>Customers</h2>
-        <button mat-raised-button color="primary" routerLink="/platform/customers/create">New Customer</button>
-    </div>
-    <div class="customers-list">
-        <table class="customers-table">
-            <thead>
-                <th>Name:</th>
-                <th>Surname:</th>
-                <th>Street:</th>
-                <th>Postal Code:</th>
-                <th>Appartment Number:</th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let customer of customers">
-                    <td>{{ customer.firstName }}</td>
-                    <td>{{ customer.lastName }}</td>
-                    <td>{{ customer.street }}</td>
-                    <td>{{ customer.postalCode }}</td>
-                    <td>{{ customer.appartmentNumber }}</td>
-                    <td>
-                        <button mat-icon-button color="accent" [routerLink]="['/platform/customers', customer.id]">
-                            <mat-icon class="blue-icon">visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button color="secondary" [routerLink]="['/platform/customers/edit', customer.id]">
-                            <mat-icon class="blue-icon">edit</mat-icon>
-                        </button>
-                        <button mat-icon-button color="secondary" (click)="deleteCustomer(customer.id)">
-                            <mat-icon class="blue-icon">delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="customers-header">
+    <h2>Customers</h2>
+    <button mat-raised-button color="primary" routerLink="/platform/customers/create">New Customer</button>
+  </div>
+  <div class="customers-list">
+    <table class="customers-table">
+      <thead>
+        <th>Name:</th>
+        <th>Surname:</th>
+        <th>Street:</th>
+        <th>Postal Code:</th>
+        <th>Appartment Number:</th>
+      </thead>
+      <tbody>
+        @for (customer of customers; track customer) {
+          <tr>
+            <td>{{ customer.firstName }}</td>
+            <td>{{ customer.lastName }}</td>
+            <td>{{ customer.street }}</td>
+            <td>{{ customer.postalCode }}</td>
+            <td>{{ customer.appartmentNumber }}</td>
+            <td>
+              <button mat-icon-button color="accent" [routerLink]="['/platform/customers', customer.id]">
+                <mat-icon class="blue-icon">visibility</mat-icon>
+              </button>
+              <button mat-icon-button color="secondary" [routerLink]="['/platform/customers/edit', customer.id]">
+                <mat-icon class="blue-icon">edit</mat-icon>
+              </button>
+              <button mat-icon-button color="secondary" (click)="deleteCustomer(customer.id)">
+                <mat-icon class="blue-icon">delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,7 +8,7 @@ import { CustomerService } from '../../core/services/customer.service';
 
 @Component({
   selector: 'app-customers',
-  imports: [CommonModule, RouterModule, MatButtonModule, MatIconModule],
+  imports: [RouterModule, MatButtonModule, MatIconModule],
   providers: [CustomerService],
   templateUrl: './customers.component.html',
   styleUrl: './customers.component.scss'

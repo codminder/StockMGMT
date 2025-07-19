@@ -4,7 +4,7 @@ import { MatInputModule } from "@angular/material/input";
 import { CustomerService } from '../../../core/services/customer.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { validateHorizontalPosition } from '@angular/cdk/overlay';
-import { CommonModule } from '@angular/common';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { UpdateCustomerModel } from '../../../core/dataContracts/updateCustomerModel';
@@ -12,7 +12,7 @@ import { UpdateCustomerModel } from '../../../core/dataContracts/updateCustomerM
 
 @Component({
   selector: 'app-customer-update',
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterModule, MatFormFieldModule, MatInputModule, MatButtonModule],
+  imports: [ReactiveFormsModule, FormsModule, RouterModule, MatFormFieldModule, MatInputModule, MatButtonModule],
   templateUrl: './customer-update.component.html',
   styleUrls: ['./customer-update.component.scss']
 })
