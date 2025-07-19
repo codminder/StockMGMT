@@ -8,6 +8,4 @@ public class Customer
   public required string Street { get; set; }
   public required string PostalCode { get; set; }
   public required int AppartmentNumber { get; set; }
-  public string Email { get; set; }
-  public string Password { get; set; }
 }

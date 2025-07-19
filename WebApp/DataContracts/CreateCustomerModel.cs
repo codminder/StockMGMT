@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Antiforgery;
 
 namespace WebApp.DataContracts;
 

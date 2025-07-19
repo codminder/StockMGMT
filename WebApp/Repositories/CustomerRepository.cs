@@ -33,8 +33,6 @@ public class CustomerRepository : ICustomerRepository
         return customer;
     }
 
-
-
     public async Task UpdateAsync(Customer customer)
     {
         _context.Customers.Update(customer);
