@@ -5,25 +5,23 @@ namespace WebApp.DataContracts.Auth
     public class RegisterCustomerDto
     {
         [Required]
-        public string FirstName { get; set; } = string.Empty;
+        public required string FirstName { get; set; }
 
         [Required]
-        public string LastName { get; set; } = string.Empty;
+        public required string LastName { get; set; }
+        [Required]
+        public required string Street { get; set; }
+        [Required]
+        public required string PostalCode { get; set; }
+        [Required]
+        public required string AppartmentNumber { get; set; }
 
         [Required]
         [EmailAddress]
-        public string Email { get; set; } = string.Empty;
-
+        public required string Email { get; set; }
         [Required]
         [MinLength(6)]
-        public string Password { get; set; } = string.Empty; // Will be hashed before saving
+        public required string Password { get; set; }
 
-        [Required]
-        public string Street { get; set; } = string.Empty;
-
-        [Required]
-        public string PostalCode { get; set; } = string.Empty;
-
-        public string? AppartmentNumber { get; set; }
     }
 }

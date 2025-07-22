@@ -4,4 +4,6 @@ export interface RegisterDto {
     street: string;
     postalCode: string;
     appartmentNumber: number;
+    email: string;
+    password: string;
 }
