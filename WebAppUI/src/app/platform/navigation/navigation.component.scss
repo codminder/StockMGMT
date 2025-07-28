@@ -1,3 +1,16 @@
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-item mat-icon {
+  font-size: 20px;
+  vertical-align: middle;
+  line-height: 1;
+}
+
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -5,4 +18,10 @@
     a {
         cursor: pointer;
     }
+}
+
+a.active {
+  background: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+  font-weight: bold;
 }
